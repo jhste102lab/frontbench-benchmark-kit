@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://frontbench.app/schemas/benchmark-result.schema.json",
+  "title": "FrontBench Benchmark Result",
+  "type": "object",
+  "required": [
+    "runId",
+    "scenarioId",
+    "modelId",
+    "promptVersion",
+    "rubricVersion",
+    "artifact",
+    "scores"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "runId": {
+      "type": "string",
+      "description": "Stable identifier for a benchmark run, often an ISO date."
+    },
+    "scenarioId": {
+      "type": "string",
+      "enum": [
+        "invoicepulse-dashboard",
+        "commerce-storefront",
+        "community-hub",
+        "brand-site"
+      ]
+    },
+    "modelId": {
+      "type": "string"
+    },
+    "promptVersion": {
+      "type": "string",
+      "examples": [
+        "prompt-v3"
+      ]
+    },
+    "rubricVersion": {
+      "type": "string",
+      "examples": [
+        "rubric-v1"
+      ]
+    },
+    "artifact": {
+      "type": "object",
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "usage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "inputTokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "outputTokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "costUsd": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "scores": {
+      "type": "object",
+      "required": [
+        "total"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "total": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "productFit": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 25
+        },
+        "visualDesign": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 25
+        },
+        "interaction": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 20
+        },
+        "technicalQuality": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 20
+        },
+        "benchmarkCompliance": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10
+        }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "passed": {
+          "type": "boolean"
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "passed"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "passed": {
+                "type": "boolean"
+              },
+              "message": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

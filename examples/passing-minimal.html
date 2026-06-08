@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>InvoicePulse Minimal Benchmark Artifact</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #172033;
+      background: #f6f7f9;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible {
+      outline: 3px solid #2457d6;
+      outline-offset: 2px;
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .status {
+      padding: 16px;
+      border: 1px solid #d8dde8;
+      background: #ffffff;
+    }
+
+    @media (max-width: 520px) {
+      main {
+        padding: 16px;
+      }
+
+      .toolbar {
+        display: grid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>InvoicePulse</h1>
+      <p>Receivables workspace for high-priority follow-ups.</p>
+    </header>
+
+    <section aria-label="Invoice controls" class="toolbar">
+      <button type="button" data-filter="all">All</button>
+      <button type="button" data-filter="overdue">Overdue</button>
+      <select aria-label="Owner">
+        <option>All owners</option>
+        <option>Mina Park</option>
+      </select>
+      <label>
+        <span>Customer search</span>
+        <input aria-label="Search customers" value="">
+      </label>
+    </section>
+
+    <section class="status" aria-live="polite">
+      <h2>Today</h2>
+      <p id="summary">Showing all invoices. $48,200 overdue. 7 follow-ups due.</p>
+    </section>
+  </main>
+
+  <script>
+    const summary = document.querySelector("#summary");
+    document.querySelectorAll("[data-filter]").forEach((button) => {
+      button.addEventListener("click", () => {
+        summary.textContent = `Showing ${button.dataset.filter} invoices. Queue updated.`;
+      });
+    });
+  </script>
+</body>
+</html>
