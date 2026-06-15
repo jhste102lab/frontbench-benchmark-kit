@@ -10,7 +10,7 @@ Each model receives:
 
 - the global prompt contract
 - one product scenario
-- the rubric for awareness when using older prompt contracts; prompt-v4 is designed to keep the rubric evaluator-side by default
+- the rubric for awareness when using older prompt contracts; prompt-v4 and newer are designed to keep the rubric evaluator-side by default
 
 The model must return only one complete HTML document. The document must begin with `<!doctype html>` and include all HTML, CSS, and JavaScript inline.
 
@@ -26,9 +26,9 @@ A typical review has three layers:
 
 The validator is intentionally not the final judge. It catches obvious contract failures and weak interaction signals. Human scoring is still needed for visual quality, product fit, information hierarchy, and whether interactions feel plausible.
 
-## Why The v4 Scenarios Are Goal-Led
+## Why The v5 Scenarios Are Open-Ended
 
-Overly prescriptive prompts can make different models converge on the same checklist-shaped screen. The v4 scenario briefs keep the product situation and user goal explicit while leaving layout, information architecture, and interaction choices to the model.
+Overly prescriptive prompts can make different models converge on the same checklist-shaped screen. The v5 scenario briefs provide broad user challenges while leaving the product concept, domain details, layout, information architecture, and interaction choices to the model.
 
 The benchmark currently includes a SaaS dashboard, commerce storefront, community hub, and product brand site. These categories cover different pressures: operational density, shopping decisions, social content, and conversion-focused storytelling.
 

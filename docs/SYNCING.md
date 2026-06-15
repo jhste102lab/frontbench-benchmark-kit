@@ -16,6 +16,7 @@ Use this public repository as the source for benchmark protocol changes. Use the
 ## Files Usually Copied
 
 ```text
+docs/benchmark/prompt-v5.md
 docs/benchmark/prompt-v4.md
 docs/benchmark/prompt-v3.md
 docs/benchmark/rubric-v1.md
