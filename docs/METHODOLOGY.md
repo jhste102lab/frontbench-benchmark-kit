@@ -10,7 +10,7 @@ Each model receives:
 
 - the global prompt contract
 - one product scenario
-- the rubric for awareness
+- the rubric for awareness when using older prompt contracts; prompt-v4 is designed to keep the rubric evaluator-side by default
 
 The model must return only one complete HTML document. The document must begin with `<!doctype html>` and include all HTML, CSS, and JavaScript inline.
 
@@ -26,9 +26,9 @@ A typical review has three layers:
 
 The validator is intentionally not the final judge. It catches obvious contract failures and weak interaction signals. Human scoring is still needed for visual quality, product fit, information hierarchy, and whether interactions feel plausible.
 
-## Why The Scenarios Are Specific
+## Why The v4 Scenarios Are Goal-Led
 
-Generic prompts often reward generic screens. The current scenario briefs require concrete product surfaces, realistic sample data, and explicit interactions because those requirements reveal whether a model can reason about a product workflow.
+Overly prescriptive prompts can make different models converge on the same checklist-shaped screen. The v4 scenario briefs keep the product situation and user goal explicit while leaving layout, information architecture, and interaction choices to the model.
 
 The benchmark currently includes a SaaS dashboard, commerce storefront, community hub, and product brand site. These categories cover different pressures: operational density, shopping decisions, social content, and conversion-focused storytelling.
 
@@ -36,4 +36,4 @@ The benchmark currently includes a SaaS dashboard, commerce storefront, communit
 
 FrontBench does not measure long-term maintainability of a real application codebase. It does not evaluate backend integration, design system adoption, accessibility audits at production depth, or multi-page information architecture.
 
-It measures a narrower but useful capability: whether a model can produce a coherent, self-contained frontend product screen from a detailed brief.
+It measures a narrower but useful capability: whether a model can produce a coherent, self-contained frontend product screen from a product goal under a constrained HTML contract.

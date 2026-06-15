@@ -1,6 +1,6 @@
 {
   "name": "frontbench-benchmark-kit",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": false,
   "type": "module",
   "description": "Prompt contracts, scenarios, rubric, and validation tools for evaluating AI-generated frontend product screens.",

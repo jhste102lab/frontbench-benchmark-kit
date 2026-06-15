@@ -33,7 +33,7 @@
     "promptVersion": {
       "type": "string",
       "examples": [
-        "prompt-v3"
+        "prompt-v4"
       ]
     },
     "rubricVersion": {

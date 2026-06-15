@@ -27,7 +27,8 @@ The goal is not to measure whether a model can recreate a specific design. The g
 
 ```text
 docs/benchmark/
-  prompt-v3.md                 current global prompt contract
+  prompt-v4.md                 current global prompt contract
+  prompt-v3.md                 previous detailed prompt contract
   rubric-v1.md                 100-point evaluation rubric
   scenarios/                   product scenario briefs
 
@@ -48,15 +49,15 @@ The current scenario set covers four common frontend categories:
 - `community-hub`: a logged-in community product
 - `brand-site`: a premium audio product brand site
 
-Each scenario is intentionally specific. Vague prompts make it too easy for models to hide behind generic hero sections. These briefs require realistic product surfaces, concrete sample data, and interactions that change visible state.
+The current v4 scenarios define a clear product situation and user goal, but avoid prescribing the exact layout or module checklist. This keeps the comparison focused on product judgment, visual hierarchy, interaction design, and frontend execution.
 
 ## Quick Start
 
 Use the current prompt contract with one scenario brief:
 
 ```bash
-cat docs/benchmark/prompt-v3.md
-cat docs/benchmark/scenarios/invoicepulse-dashboard-v3.md
+cat docs/benchmark/prompt-v4.md
+cat docs/benchmark/scenarios/invoicepulse-dashboard-v4.md
 ```
 
 Ask a model to produce only the complete HTML document. Save the response as `index.html`, then validate it:
